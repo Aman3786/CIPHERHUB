@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block titu %} Ceasar {% endblock titu %} {% block content %}
+
+<div class="container mb-2">
+    <div class="accordion mx-3" id="accordionExample">
+        <div class="accordion-item shadow rounded-2">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <strong>Ceasar cipher</strong>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse rounded-2" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the first item's accordion body.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-4 my-5">
+        <div class="card shadow rounded">
+            <div class="card-body">
+                <h4 class="text-center text-info mb-4"><strong>Ceasar Cipher</strong></h4>
+                <form action="" method="POST">
+                    <!-- <input type="hidden" name="id" value="{{id}}"> -->
+                    {% csrf_token %}
+                    <label for="Inputselect" class="form-label text-danger fs-5 fw-bold">Select the method</label>
+                    <select class="form-select mb-5" id="Inputselect" name="select_method" aria-label="Default select example">
+                            <option value="1" selected>Encrypt</option>
+                            <option value="2">Decrypt</option>
+                            
+                    </select>
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-6 col-12">
+
+                            <div class="mb-3">
+                                <label for="Inputtext" class="form-label text-danger fs-5 fw-bold">Key</label>
+                                <input type="text" class="form-control" name="key" id="Inputtext" placeholder="Enter the Key..">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 col-lg-6 col-12">
+                            <div class="mb-3">
+                                <label for="Inputmssg" class="form-label text-danger fs-5 fw-bold">Message</label>
+                                <input type="text" class="form-control"  name="msg" id="Inputmssg" placeholder='Enter the message..'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-dark">Convert</button>
+                    </div>
+                </form> 
+                {% if result %}
+                    
+                    {% if type == 1 %}
+                          <h3 class="text-dark text-center fsw-bold"> Encrypted message </h3>
+                    {% else %}
+                        <h3 class="text-dark text-center fsw-bold">Decrypted message </h3>
+                    {% endif %}
+                     <h3 class="text-info text-center"> {{result}} </h3>
+                    
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

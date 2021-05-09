@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block titu %} CipherHub {% endblock titu %} {% block content %}
+
+<div class='my-4'>
+    <div class='row'>
+
+
+        <div class="col-lg-4 col-md-4 col-12 mb-3">
+            <div class="card shadow rounded-2">
+                <img src="https://cdn.pixabay.com/photo/2020/10/14/08/20/security-5653681__340.jpg" class="card-img-top" alt="..." height="200">
+                <div class="card-body">
+                    <h5 class="card-title fw-bolder fs-4">Playfair Cipher</h5>
+                    <p class="card-text">It is about playfair cipher</p>
+                    <a href="{% url 'playfair' %}" class="btn btn-outline-dark mt-1">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 mb-3">
+            <div class="card shadow rounded-2">
+                <img src="https://cdn.pixabay.com/photo/2020/10/14/08/20/security-5653681__340.jpg" class="card-img-top" alt="..." height="200">
+                <div class="card-body">
+                    <h5 class="card-title fw-bolder fs-4">Ceasar Cipher</h5>
+                    <p class="card-text">It is about ceasar cipher</p>
+                    <a href="{% url 'ceasar' %}" class="btn btn-outline-dark mt-1">View</a> <!--https://blog.templatetoaster.com/wp-content/uploads/2019/09/What-is-Bootstrap.jpg   -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 mb-3">
+            <div class="card shadow rounded-2">
+                <img src="https://cdn.pixabay.com/photo/2020/10/14/08/20/security-5653681__340.jpg" class="card-img-top" alt="..." height="200">
+                <div class="card-body">
+                    <h5 class="card-title fw-bolder fs-4">RSA cipher</h5>
+                    <p class="card-text">It is about RSA cipher</p>
+                    <a href="{% url 'rsa' %}" class="btn btn-outline-dark mt-1">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}

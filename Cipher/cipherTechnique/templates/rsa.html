@@ -1,0 +1,123 @@
+{% extends "base.html" %} {% block titu %} RSA {% endblock titu %} {% block content %}
+
+<div class="container mb-2">
+    <div class="accordion mx-3" id="accordionExample">
+        <div class="accordion-item shadow rounded-2">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <strong>RSA Cipher</strong>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse rounded-2" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the first item's accordion body.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-4 my-5">
+        <div class="card shadow rounded">
+            <div class="card-body">
+                <h4 class="text-center text-info mb-4"><strong>RSA Encryption</strong></h4>
+                <form action="" method=POST>
+                {% csrf_token %}
+                    <input type="hidden" name="id" value="encrypt"> 
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+
+                            <div class="mb-3">
+                                <label for="Inputtext" class="form-label text-danger fs-5 fw-bold">P</label>
+                                <input type="number" class="form-control" name="p" id="Inputtext" placeholder="Enter the Key.." required>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="Inputmssg" class="form-label text-danger fs-5 fw-bold">Q</label>
+                                <input type="number" class="form-control" name="q" id="Inputmssg" placeholder='Enter the message..' required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="Inputmssg" class="form-label text-danger fs-5 fw-bold">Message</label>
+                                <input type="number" class="form-control" name="msg" id="Inputmssg" placeholder='Enter the message..' required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-dark">Encrypt</button>
+                    </div>
+                </form>
+                {% if value %}
+
+                        <div class="d-flex justify-content-center mt-4">
+                    
+                        <ul type="disc" class="" >
+                        
+                            <li><h4>Encrypted message : <strong class="text-danger">{{value.0}}</strong></h4></li>
+                            <li><h4>Value of D :<strong class="text-danger"> {{value.1}}</strong></h4></li>
+                            <li><h4>Value of N : <strong class="text-danger"> {{value.2}}</strong></h4></li>                            
+                        </ul>
+
+                        
+                    </div>
+                   
+                {% endif %}
+                {% if result %}
+                        <div class=" justify-content-center mt-3">
+                            <h3> {{result.equal}} </h3> 
+                            <h3> {{result.prime}} </h3>
+                        </div>
+                    
+
+                {% endif %}
+
+
+                <div class="mt-5">
+                <h4 class="text-center text-info mb-2"><strong>RSA Decryption</strong></h4>
+                <form action="" method=POST>
+                {% csrf_token %}
+                    <input type="hidden" name="id" value="decrypt"> 
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+
+                            <div class="mb-3">
+                                <label for="InputD" class="form-label text-danger fs-5 fw-bold">D</label>
+                                <input type="number" class="form-control" name="d" id="InputD" placeholder="Enter the Key.." required>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="InputN" class="form-label text-danger fs-5 fw-bold">N</label>
+                                <input type="number" class="form-control" name="n" id="InputN" placeholder='Enter the message..' required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="Inputdec" class="form-label text-danger fs-5 fw-bold">Encrypted Message</label>
+                                <input type="number" class="form-control" name="decript" id="Inputdec" placeholder='Enter the message..' required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-dark">Decrypt</button>
+                    </div>
+                </form>
+                </div>
+                {% if ans %}
+
+                 <h4 class="mt-3 text-center">Decrypted message :<strong class="text-danger "> {{ans}}</strong> </h4>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
