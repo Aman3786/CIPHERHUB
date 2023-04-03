@@ -22,7 +22,9 @@ SECRET_KEY = '46zb)=^lp1&5$0*+qrwhhypejo1=3214nl%b07iz_7g9nd99s*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] 
+
+CSRF_TRUSTED_ORIGINS = ['https://cipherhub.up.railway.app']
 
 
 # Application definition
